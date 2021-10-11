@@ -74,3 +74,14 @@ Number of trials: 3/3 (3 TERMINATED)
 ### BOHB의 max_concurrent 및 cpu 값을 잘 활용
 
 * 병렬적으로 처리하게 되어 최적화 속도가 개선될 수 있다.
+
+### 시각화
+
+* 실행 시 지정한 경로에 기록이 쌓이는데, tensorboard로 확인이 가능하다.
+
+```
+tensorboard --logdir bohb_results/
+```
+![image](https://user-images.githubusercontent.com/38157496/136788989-352e7580-d84a-48ee-97bf-68c3e81de296.png)
+
+![image](https://user-images.githubusercontent.com/38157496/136788728-420ef170-9b7d-4ffe-8516-8d990957cd1c.png)
