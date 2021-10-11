@@ -70,4 +70,4 @@ def objective(config):
         for test_images, test_labels in test_ds:
             test_step(test_images, test_labels)
             
-        tune.report(mean_accuracy=test_acc.result())
+        tune.report(mean_accuracy=test_acc.result().numpy().item())
