@@ -1,4 +1,4 @@
-# BOHB-setup-template
+# BOHB-template
 
 ## 실행 방법
 
@@ -6,7 +6,7 @@
 
 2021-10-10 기준
 
-* [x] tf keras 버전 (tunecallback 방식)
+* [x] tf keras 버전 (tunecallback 방식) 완료
 * [x] gradienttape 버전 (train_iteration 방식) 완료
 * pytorch 버전은 구현 준비중
 
@@ -26,11 +26,11 @@ bohb의 경우
 
 ### 2. 스케쥴러의 max_t 설정
 
-* keras나 torch의 epoch을 늘려도 max_t에 따라서 terminate된다.
+* keras나 torch의 epoch을 늘려도 max_t에 따라서 terminate된다. HB 계열일 경우 eta (reduction_factor)도 잘 고려해서 설정하자.
 
 ### 3. 샘플 수 설정
 
-* tune.run의 샘플 수는 config에서 정한 조합 중 seed 수에 맞춰 선별된다.
+* tune.run의 샘플 수는 config에서 정한 조합 중 seed에 맞춰 설정한 수에 맞춰 선별된다.
 
 선별된 샘플은 다음과 같이 pending 되고, running 된다.
 
@@ -48,6 +48,8 @@ bohb의 경우
 ### 4. stop 조건 설정
 
 * tune.run의 stop 항목의 t의 값에 따라 멈출 수 있다.
+
+예를 들어
 
 ```
 stop={
@@ -71,4 +73,4 @@ Number of trials: 3/3 (3 TERMINATED)
 
 ### BOHB의 max_concurrent 및 cpu 값을 잘 활용
 
-* 병렬적으로 처리하게 되어 최적화 속도가 개선될 있다.
+* 병렬적으로 처리하게 되어 최적화 속도가 개선될 수 있다.
