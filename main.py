@@ -36,9 +36,9 @@ def tune_mnist(training_iter):
         scheduler=sha_scheduler,
         # search_alg=bohb_search,
         num_samples=3, # 고려할 샘플 수들
-        stop={
-            "mean_accuracy": 0.91
-        },
+        # stop={
+        #     "mean_accuracy": 0.91
+        # },
         metric="mean_accuracy",
         local_dir="./bohb_results",
         mode="max",
