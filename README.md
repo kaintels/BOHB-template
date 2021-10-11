@@ -71,11 +71,11 @@ Number of trials: 3/3 (3 TERMINATED)
 ```
 
 
-### BOHB의 max_concurrent 및 cpu 값을 잘 활용
+### 5. BOHB의 max_concurrent 및 cpu 값을 잘 활용
 
 * 병렬적으로 처리하게 되어 최적화 속도가 개선될 수 있다.
 
-### 시각화
+### 6. 시각화
 
 * 실행 시 지정한 경로에 기록이 쌓이는데, tensorboard로 확인이 가능하다.
 
