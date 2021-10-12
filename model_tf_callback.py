@@ -32,7 +32,7 @@ def objective(config):
     output = Dense(10, activation='softmax')(hidden2)
     model = Model(inputs=inputs, outputs=output)
     model.compile(optimizer=config["optimizers"], loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.fit(x_train, y_train, verbose=0, epochs=10, shuffle=False, callbacks=[TuneReportCallback({
+    model.fit(x_train, y_train, verbose=0, epochs=config["training_iteration"], shuffle=False, callbacks=[TuneReportCallback({
             "mean_accuracy": "accuracy"
         })])
 
