@@ -53,7 +53,7 @@ bohb의 경우
 
 ```
 stop={
-"mean_accuracy": 0.99,
+"mean_accuracy": 0.99, # 정확도가 0.99 이상일 경우 Terminate
 "training_iteration": 1
 },
 ```
