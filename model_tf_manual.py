@@ -63,7 +63,7 @@ def objective(config):
         test_loss(loss)
         test_acc(labels, predictions)
 
-    for epoch in range(10):
+    for epoch in range(config["training_iteration"]):
         for images, labels in train_ds:
             train_step(images, labels)
             
