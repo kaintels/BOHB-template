@@ -7,7 +7,7 @@
 2021-10-10 기준
 
 * [x] tf keras 버전 (tunecallback 방식) 완료
-* [x] gradienttape 버전 (train_iteration 방식) 완료
+* [x] tf gradienttape 버전 (train_iteration 방식) 완료
 * pytorch 버전은 구현 준비중
 
 
@@ -26,7 +26,7 @@ bohb의 경우
 
 ### 2. 스케쥴러의 max_t 설정
 
-* keras나 torch의 epoch을 늘려도 max_t에 따라서 terminate된다. HB 계열일 경우 eta (reduction_factor)도 잘 고려해서 설정하자.
+* keras나 torch의 epoch은 max_t 값을 기준으로 terminate된다. HB 계열일 경우 eta (reduction_factor)도 잘 고려해서 설정하자.
 
 ### 3. 샘플 수 설정
 
@@ -77,7 +77,7 @@ Number of trials: 3/3 (3 TERMINATED)
 
 ### 6. 시각화
 
-* 실행 시 지정한 경로에 기록이 쌓이는데, tensorboard로 확인이 가능하다.
+* 실행 시 지정한 경로에 기록이 쌓이는데, tensorboard 명령어로 확인이 가능하다.
 
 ```
 tensorboard --logdir bohb_results/
