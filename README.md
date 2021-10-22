@@ -5,11 +5,11 @@
 
 ```python main.py```
 
-2021-10-10 기준
+2021-10-22 기준
 
 * [x] tf keras 버전 (tunecallback 방식) 완료
 * [x] tf gradienttape 버전 (train_iteration 방식) 완료
-* pytorch 버전은 구현 준비중
+* [x] pytorch 버전 완료
 
 
 ## 방법 소개
