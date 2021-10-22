@@ -1,5 +1,6 @@
 # BOHB-template
 
+- The template of Bayesian optimization Hyperband (BOHB)
 ## 실행 방법
 
 ```python main.py```
