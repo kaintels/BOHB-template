@@ -18,16 +18,16 @@ def objective(config):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     mnist_train = dsets.MNIST(
-        root="MNIST_data/",  # 다운로드 경로 지정
-        train=True,  # True를 지정하면 훈련 데이터로 다운로드
-        transform=transforms.ToTensor(),  # 텐서로 변환
+        root="MNIST_data/",  
+        train=True,  
+        transform=transforms.ToTensor(),  
         download=True,
     )
 
     mnist_test = dsets.MNIST(
-        root="MNIST_data/",  # 다운로드 경로 지정
-        train=False,  # False를 지정하면 테스트 데이터로 다운로드
-        transform=transforms.ToTensor(),  # 텐서로 변환
+        root="MNIST_data/",  
+        train=False,  
+        transform=transforms.ToTensor(), 
         download=True,
     )
 
@@ -52,7 +52,7 @@ def objective(config):
     seed = 777
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)  # if use multi-GPU
+    torch.cuda.manual_seed_all(seed) 
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
     np.random.seed(seed)
