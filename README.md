@@ -7,14 +7,14 @@
 
 2021-10-22 기준
 
-* [x] tf keras 버전 (tunecallback 방식) 완료
-* [x] tf gradienttape 버전 (train_iteration 방식) 완료
-* [x] pytorch 버전 완료
+* [x] tf keras 버전 (tunecallback 방식) 완료 tf keras version finish (tunucallback method)
+* [x] tf gradienttape 버전 (train_iteration 방식) 완료 tf gradienttape version finish (train iteration method)
+* [x] pytorch 버전 완료 pytorch version finish
 
 
 ## 방법 소개
 
-### 1. 라이브러리 설치
+### 1. 라이브러리 설치 Prerequisite
 
 ray 및 tune 설치
 
@@ -25,11 +25,11 @@ bohb의 경우
 ```pip install hpbandster ConfigSpace```
 
 
-### 2. 스케쥴러의 max_t 설정
+### 2. 스케쥴러의 max_t 설정 How to max_t setting in scheduler
 
 * keras나 torch의 epoch은 max_t 값을 기준으로 terminate된다. HB 계열일 경우 eta (reduction_factor)도 잘 고려해서 설정하자.
 
-### 3. 샘플 수 설정
+### 3. 샘플 수 설정 How to set sample number
 
 * tune.run의 샘플 수는 config에서 정한 조합 중 seed에 맞춰 설정한 수에 맞춰 선별된다.
 
@@ -46,7 +46,7 @@ bohb의 경우
 ```
 
 
-### 4. stop 조건 설정
+### 4. stop 조건 설정 How to set stop condition
 
 * tune.run의 stop 항목의 t의 값에 따라 멈출 수 있다.
 
@@ -72,11 +72,11 @@ Number of trials: 3/3 (3 TERMINATED)
 ```
 
 
-### 5. BOHB의 max_concurrent 및 cpu 값을 잘 활용
+### 5. BOHB의 max_concurrent 및 cpu 값을 잘 활용 use max_concurrent cpu in BOHB
 
 * 병렬적으로 처리하게 되어 최적화 속도가 개선될 수 있다.
 
-### 6. 시각화
+### 6. 시각화 Visualization
 
 * 실행 시 지정한 경로에 기록이 쌓이는데, tensorboard 명령어로 확인이 가능하다.
 
