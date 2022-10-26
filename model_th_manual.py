@@ -74,7 +74,6 @@ def objective(config):
 
         def forward(self, x):
             x = self.flatten(x)
-            print(x)
             x = self.activation(self.Dense1(x))
             x = self.activation(self.Dense2(x))
             x = F.log_softmax(x)
@@ -85,8 +84,6 @@ def objective(config):
     test_acc = torchmetrics.Accuracy().to(device)
 
     model = Net().to(device)
-
-    print(model)
     if config["optimizers"] == "rmsprop":
         optimizer = torch.optim.RMSprop(model.parameters())
     if config["optimizers"] == "adam":
@@ -118,7 +115,5 @@ def objective(config):
                 val_acces.append(val_acc)
 
         val_acc_print = sum(val_acces) / len(val_data_loader)
-
-        print(val_acc_print)
 
     tune.report(mean_accuracy=val_acc_print.item())
