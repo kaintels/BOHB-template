@@ -40,14 +40,14 @@ def tune_mnist():
         config=config,
         scheduler=hyperband,  # or hyperband or bohb_hyperband
         # search_alg=bohb_search, # 따로 설정하지 않을 시 랜덤 서치 및 그리드 서치 적용
-        num_samples=3,  # 고려할 샘플 수들
+        num_samples=64,  # 고려할 샘플 수들
         # stop={
         #     "mean_accuracy": 0.91
         # },
         metric="mean_accuracy",
         local_dir="./bohb_results",
         mode="max",
-        resources_per_trial={"cpu": 2, "gpu": 1},
+        resources_per_trial={"cpu": 4, "gpu": 0},
     )
 
     print("Best hyperparameters found were: ", analysis.best_config)
@@ -55,5 +55,4 @@ def tune_mnist():
 
 
 if __name__ == "__main__":
-    ray.init(num_cpus=2, log_to_driver=False)  # cpu 코어 수
     tune_mnist()
