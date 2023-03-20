@@ -1,39 +1,29 @@
 # BOHB-template
 
 - The template of Bayesian optimization Hyperband (BOHB)
-## 실행 방법
+
+## How to Run
 
 ```python main.py```
 
-2021-10-22 기준
+in 2021-10-22
 
-* [x] tf keras 버전 (tunecallback 방식) 완료 tf keras version finish (tunucallback method)
-* [x] tf gradienttape 버전 (train_iteration 방식) 완료 tf gradienttape version finish (train iteration method)
-* [x] pytorch 버전 완료 pytorch version finish
+* [x] tf keras version (tunecallback) completed. 
+* [x] tf gradienttape version (train_iteration) completed.
+* [x] pytorch version completed.
 
 
 ## 방법 소개
 
-### 1. 라이브러리 설치 Prerequisite
+### 1. Prerequisite
 
-ray 및 tune 설치
+```pip install ray[tune] hpbandster ConfigSpace```
 
-```pip install ray[tune]```
+### 2. How to max_t setting in scheduler
 
-bohb의 경우
+* The epoch of keras or torch is terminated based on max_t value.
 
-```pip install hpbandster ConfigSpace```
-
-
-### 2. 스케쥴러의 max_t 설정 How to max_t setting in scheduler
-
-* keras나 torch의 epoch은 max_t 값을 기준으로 terminate된다. HB 계열일 경우 eta (reduction_factor)도 잘 고려해서 설정하자.
-
-### 3. 샘플 수 설정 How to set sample number
-
-* tune.run의 샘플 수는 config에서 정한 조합 중 seed에 맞춰 설정한 수에 맞춰 선별된다.
-
-선별된 샘플은 다음과 같이 pending 되고, running 된다.
+Running example
 
 ```
 +-----------------------+----------+-------+--------------+-----------+-----------+--------------+
@@ -46,11 +36,11 @@ bohb의 경우
 ```
 
 
-### 4. stop 조건 설정 How to set stop condition
+### 4. How to set stop condition
 
-* tune.run의 stop 항목의 t의 값에 따라 멈출 수 있다.
+* It can be stopped according to the value of t in the stop item of tune.run.
 
-예를 들어
+For example, 
 
 ```
 stop={
@@ -58,7 +48,7 @@ stop={
 "training_iteration": 1
 },
 ```
-이 경우 max_t가 아무리 길어도, trial이 모두 다 running되었을 때(1번), 1번으로 간주되어 종료된다.
+In this case, no matter how long max_t is, when all trials are running (one.), it is considered as ends.
 
 ```
 Number of trials: 3/3 (3 TERMINATED)
@@ -72,13 +62,9 @@ Number of trials: 3/3 (3 TERMINATED)
 ```
 
 
-### 5. BOHB의 max_concurrent 및 cpu 값을 잘 활용 use max_concurrent cpu in BOHB
+### 5. Visualization
 
-* 병렬적으로 처리하게 되어 최적화 속도가 개선될 수 있다.
-
-### 6. 시각화 Visualization
-
-* 실행 시 지정한 경로에 기록이 쌓이는데, tensorboard 명령어로 확인이 가능하다.
+* Records are accumulated in the specified path during execution, which can be checked with the tensorboard command.
 
 ```
 tensorboard --logdir bohb_results/
