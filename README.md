@@ -13,7 +13,7 @@ in 2021-10-22
 * [x] pytorch version completed.
 
 
-## 방법 소개
+## Quick Start
 
 ### 1. Prerequisite
 
@@ -36,7 +36,7 @@ Running example
 ```
 
 
-### 4. How to set stop condition
+### 3. How to set stop condition
 
 * It can be stopped according to the value of t in the stop item of tune.run.
 
@@ -44,11 +44,11 @@ For example,
 
 ```
 stop={
-"mean_accuracy": 0.99, # 정확도가 0.99 이상일 경우 Terminate
+"mean_accuracy": 0.99, # Terminate if accuracy is greater than 0.99
 "training_iteration": 1
 },
 ```
-In this case, no matter how long max_t is, when all trials are running (one.), it is considered as ends.
+In this case, no matter how long max_t is, when all trials are running (just training iteration one), it is considered as ends.
 
 ```
 Number of trials: 3/3 (3 TERMINATED)
@@ -62,7 +62,7 @@ Number of trials: 3/3 (3 TERMINATED)
 ```
 
 
-### 5. Visualization
+### 4. Visualization
 
 * Records are accumulated in the specified path during execution, which can be checked with the tensorboard command.
 
